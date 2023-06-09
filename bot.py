@@ -27,6 +27,11 @@ async def how(ctx):
    how = discord.File(random_pic)
    await ctx.send(file= how)
 
+@bot.command()
+async def anime(ctx):
+   random_pic = random.choice(jdata['url_pic'])
+   await ctx.send(random_pic)
+
 @bot.event
 async def on_member_join(member):
    channel = bot.get_channel(int(jdata['WELCOME']))
