@@ -14,6 +14,12 @@ bot = commands.Bot(command_prefix='[', intents = intents)
 async def on_ready():
    print(">>Bot is online<<")
 
+
+@bot.command()
+async def 怎麼辦(ctx):
+   pic = discord.File(jdata['pic'])
+   await ctx.send(file= pic)
+
 @bot.event
 async def on_member_join(member):
    channel = bot.get_channel(int(jdata['WELCOME']))
