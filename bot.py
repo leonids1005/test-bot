@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 import json
+import random
 
 with open('setting.json', 'r', encoding='utF8') as jFile:
    jdata = json.load(jFile)
@@ -19,6 +20,12 @@ async def on_ready():
 async def 怎麼辦(ctx):
    pic = discord.File(jdata['pic'])
    await ctx.send(file= pic)
+
+@bot.command()
+async def how(ctx):
+   random_pic = random.choice(jdata['how'])
+   how = discord.File(random_pic)
+   await ctx.send(file= how)
 
 @bot.event
 async def on_member_join(member):
