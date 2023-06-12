@@ -42,11 +42,6 @@ async def on_member_remove(member):
    channel = bot.get_channel(int(jdata['LEAVE']))
    await channel.send(F'{member} 輕輕地走了')
 
-@bot.event
-async def on_message(message):
-   if message.content == '早上好中國':
-      await message.channel.send('現在我有冰淇淋')
-
 @bot.command()
 async def ping(ctx):
    await ctx.send(F'{round(bot.latency*1000)} (ms)')
