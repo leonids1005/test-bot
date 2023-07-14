@@ -25,9 +25,25 @@ async def on_member_remove(member):
    channel = bot.get_channel(int(jdata['LEAVE']))
    await channel.send(F'{member} 輕輕地走了')
 
+@bot.command()
+async def load(ctx, extension):
+   bot.load_extension(F'cmds.{extension}')
+   await ctx.send(F'Loaded {extension} done.')
+
+@bot.command()
+async def unload(ctx, extension):
+   bot.unload_extension(F'cmds.{extension}')
+   await ctx.send(F'Un-Loaded {extension} done.')   
+
+@bot.command()
+async def reload(ctx, extension):
+   bot.reload_extension(F'cmds.{extension}')
+   await ctx.send(F'Re-Loaded {extension} done.')
+
 for Filename in os.listdir('./cmds'):
    if Filename.endswith('.py'):
       bot.load_extension(F'cmds.{Filename[:-3]}')
+
 
 if __name__ == "__main__":
     bot.run(jdata['TOKEN'])
