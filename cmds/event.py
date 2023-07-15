@@ -20,16 +20,8 @@ class Event(Cog_Extension):
 
     @commands.Cog.listener()
     async def on_message(self, msg):
-       if msg.content == 'what':
-           await msg.channel.send('what?')
+       if msg.content == '：/':
+           await msg.channel.send('你再傳一次試試')
    
-    @commands.Cog.listener()
-    async def on_message(self, msg):
-       if msg.content == '早上好中國':
-           await msg.channel.send('現在我有冰淇淋')
-    @commands.Cog.listener()
-    async def on_message(self, msg):
-       if msg.content == '所以現在是':
-           await msg.channel.send('音樂時間~')
 def setup(bot):
     bot.add_cog(Event(bot))
