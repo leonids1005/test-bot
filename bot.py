@@ -15,6 +15,16 @@ bot = commands.Bot(command_prefix='[', intents = intents)
 async def on_ready():
    print(">>Bot is online<<")
 
+@bot.event
+async def on_message(msg):
+	 if '：/' in msg.content and msg.author != bot.user:
+	     await msg.channel.send('你他媽再傳一次試試看')
+
+@bot.event
+async def on_message(msg):
+	 if '？' in msg.content and msg.author != bot.user:
+	     await msg.channel.send('？')
+
 @bot.command()
 async def load(ctx, extension):
    bot.load_extension(F'cmds.{extension}')
