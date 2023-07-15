@@ -20,7 +20,7 @@ class Event(Cog_Extension):
 
     @commands.Cog.listener()
     async def on_message(self, msg):
-       if msg.content == '：/':
+       if msg.content == '欸嘿':
            await msg.channel.send('你再傳一次試試')
    
 def setup(bot):
