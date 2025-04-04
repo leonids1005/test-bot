@@ -17,13 +17,25 @@ async def on_ready():
 
 @bot.event
 async def on_message(msg):
-	 if '：/' in msg.content and msg.author != bot.user:
-	     await msg.channel.send('你他媽再傳一次試試看')
+    if msg.author == bot.user:
+        return  # 機器人不理自己
 
-@bot.event
-async def on_message(msg):
-	 if '？' in msg.content and msg.author != bot.user:
-	     await msg.channel.send('？')
+    target_channel_id = 1086059639340281906  
+
+    if msg.channel.id != target_channel_id:
+        return  
+
+    if '：/' in msg.content:
+        await msg.channel.send('你再傳一次試試')
+
+    elif '？' in msg.content:
+        await msg.channel.send('？')
+
+    elif '行' in msg.content:
+        await msg.channel.send('行')
+
+    await bot.process_commands(msg)
+
 
 @bot.command()
 async def load(ctx, extension):
